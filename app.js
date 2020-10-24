@@ -18,7 +18,8 @@ app.use(express.static('assets'));
  
 app.use('/assets', express.static(__dirname + '/assets'));
  
-// app.listen('/');
-app.listen(port, () => {
+app.listen('/');
+
+/* app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
-})
+}) */
