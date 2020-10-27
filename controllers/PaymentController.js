@@ -4,17 +4,17 @@ class PaymentController {
 	}
   
 	async getMercadoPagoLink(req, res) {
-	  const { name, price, unit, img } = req.query; 
+	  const { title, price, unit, img } = req.query; 
 	  try {
 		const checkout = await this.paymentService.createPaymentMercadoPago(
-		  name, 
+		  title, 
 		  price,
 		  unit, 
-		  img 
+		  img 			
 		);
-  
+		console.log(res)
 		return res.redirect(checkout.init_point);  
-  
+
 	  } catch (err) { 
   
 		return res.status(500).json({
@@ -37,6 +37,6 @@ class PaymentController {
 	  }
 	  return res.status(200); 
 	}
-  }
+}
   
   module.exports = PaymentController;

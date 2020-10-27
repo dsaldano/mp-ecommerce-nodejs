@@ -1,4 +1,4 @@
-const axios = require('axios');
+const axios = require('axios');;
 
 class PaymentService {
 	constructor(){
@@ -13,7 +13,8 @@ class PaymentService {
 	}
 
 	// recibimos las props que le mandamos desde el PaymentController
-	async createPaymentMercadoPago(name, price, unit, img){
+	async createPaymentMercadoPago(title, price, unit, img){
+
 		const url = `${this.mercadoPagoUrl}/preferences?access_token=${this.tokensMercadoPago.test.access_token}`; 
 		
 		const	items = [
@@ -80,7 +81,7 @@ class PaymentService {
 		};
 
 		try {
-			const request = await axios.post(url, preferences,{
+			const request = await axios.post(url, preference,{
 				headers: {
 					"Content-type": "application/Json"
 				}

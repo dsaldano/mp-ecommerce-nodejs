@@ -42,7 +42,7 @@ app.use(cookieParser());
 app.use('/assets', express.static(__dirname + '/assets'));
 
 app.post("/payment/new", (req, res) => 
-PaymentInstance.getMercadoPagoLink(req, res) 
+  PaymentInstance.getMercadoPagoLink(req, res) 
 );
 
 app.post("/webhook", (req, res) => PaymentInstance.webhook(req, res));
