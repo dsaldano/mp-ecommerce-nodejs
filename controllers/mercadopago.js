@@ -1,4 +1,4 @@
-// Agrega credenciales
+/* // Agrega credenciales
 const mercadopago = require('mercadopago')
 
 //credenciales
@@ -59,4 +59,4 @@ mercadopago.preferences.create(preference)
   console.log(error);
 });
 
-module.exports = MercadoPagoService;
+module.exports = MercadoPagoService;/ */
