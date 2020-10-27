@@ -24,7 +24,8 @@ class PaymentService {
 				category_id: 'home',
 				quantity: 1,
 				currency_id: 'ARS',
-				unit_price: 100
+				unit_price: 100,
+				picture_url: 'https://http2.mlstatic.com/D_NQ_NP_666172-MLA40642090935_022020-O.webp'
 			}
 		]
 			
