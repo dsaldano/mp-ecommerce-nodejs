@@ -3,11 +3,14 @@ const axios = require('axios');;
 class PaymentService {
 	constructor(){
 		this.tokensMercadoPago = {
-			prod: {},
-			test: {
+			prod: {
+				access_token: 'APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398',
+				//integrator_id: 'dev_24c65fb163bf11ea96500242ac130004',
+			},
+/* 			test: {
 				access_token: 'APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398',
 				integrator_id: 'dev_24c65fb163bf11ea96500242ac130004',
-			}
+			} */
 		};
 		this.mercadoPagoUrl = "https://api.mercadopago.com/checkout";
 	}
@@ -15,8 +18,7 @@ class PaymentService {
 	// recibimos las props que le mandamos desde el PaymentController
 	async createPaymentMercadoPago(title, price, unit, img){
 
-		const url = `${this.mercadoPagoUrl}/preferences?access_token=${this.tokensMercadoPago.test.access_token}`; 
-		
+		const url = `${this.mercadoPagoUrl}/preferences?access_token=${this.tokensMercadoPago.prod.access_token}`; 
 		const	items = [
 			{
 				id: '1234',

@@ -1,25 +1,21 @@
 const express = require('express')
 const exphbs  = require('express-handlebars');
-const axios = require('axios');
-//const MercadoPagoService = require('./controller/mercadopago');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const mercadopago = require('mercadopago');
 
 const app = express()
-//const port = 3000
+
 var port = process.env.PORT || 3000;
 
 //importamos el controller
 const PaymentController = require("./controllers/PaymentController");
 
 //importamos el service
-const PaymentService = require("./services/PaymentServices"); 
+const PaymentService = require("./services/PaymentService"); 
 
-// Permitimos que el controller puseda usar el service
+// Permitimos que el controller pueda usar el service
 const PaymentInstance = new PaymentController(new PaymentService()); 
-//const MercadoPagoServiceInstance = new MercadoPagoService();
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -45,9 +41,12 @@ app.post("/payment/new", (req, res) =>
   PaymentInstance.getMercadoPagoLink(req, res) 
 );
 
-app.post("/webhook", (req, res) => PaymentInstance.webhook(req, res));
-
+app.post("/webhook", (req, res) =>
+  PaymentInstance.webhook(req, res)
+);
 
 app.listen(port,() => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
+
+module.exports = app;
